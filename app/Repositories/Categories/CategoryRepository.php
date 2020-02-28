@@ -56,7 +56,7 @@ class CategoryRepository extends BaseRepository
      */
     private function whereStatus($filter)
     {
-        if (!$this->hasValue($filter['status'])) {
+        if (!isset($filter['status'])) {
             return $this;
         }
 
@@ -75,6 +75,24 @@ class CategoryRepository extends BaseRepository
         }
 
         return $this;
+    }
+
+    /**
+     * @param array $params
+     * @return void
+     */
+    public function syncProducts(array $params)
+    {
+        $this->model->products()->sync($params);
+    }
+
+
+    /**
+     * @return void
+     */
+    public function detachProducts()
+    {
+        $this->model->products()->detach();
     }
 
     /**

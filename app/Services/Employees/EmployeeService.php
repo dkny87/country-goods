@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Employees;
 
 use App\Repositories\Employees\EmployeeRepository;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 
 class EmployeeService
@@ -24,34 +24,35 @@ class EmployeeService
     }
 
     /**
-     * @return Collection|Model[]
+     * @param array $request
+     * @return LengthAwarePaginator
      */
-    public function list()
+    public function list(array $request)
     {
-        return $this->employeeRepository->all();
+        return $this->employeeRepository->list($request);
     }
 
     /**
-     * @param int|string $id
-     * @return mixed
+     * @param $id
+     * @return Model
      */
-    public function find($id)
+    public function find($id): Model
     {
         return $this->employeeRepository->find($id);
     }
 
     /**
      * @param array $request
-     * @return bool
+     * @return Model
      */
-    public function create(array $request): bool
+    public function create(array $request): Model
     {
         return $this->employeeRepository->create($request);
     }
 
     /**
      * @param array $request
-     * @param int|string $id
+     * @param $id
      * @return bool
      */
     public function update(array $request, $id): bool

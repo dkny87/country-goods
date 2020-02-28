@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Customers;
 
 use App\Repositories\Customers\CustomerRepository;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,11 +25,12 @@ class CustomerService
     }
 
     /**
-     * @return Collection|Model[]
+     * @param array $request
+     * @return LengthAwarePaginator
      */
-    public function list()
+    public function list(array $request)
     {
-        return $this->customerRepository->all();
+        return $this->customerRepository->list($request);
     }
 
     /**
@@ -42,9 +44,9 @@ class CustomerService
 
     /**
      * @param array $request
-     * @return bool
+     * @return Model
      */
-    public function create(array $request): bool
+    public function create(array $request): Model
     {
         return $this->customerRepository->create($request);
     }

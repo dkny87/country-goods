@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Repositories\Categories;
+namespace App\Repositories\Products;
 
-use App\Domain\Product;
 use App\Domain\Pagination;
+use App\Domain\Product;
 use App\Models\Product as ProductModel;
 use App\Repositories\BaseRepository;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -64,16 +64,33 @@ class ProductRepository extends BaseRepository
 
         if (is_array($statuses)) {
             $validStatuses = collect($statuses)->filter(function ($status) {
-                return Category::hasValidStatus($status);
+                return Product::hasValidStatus($status);
             })->toArray();
 
             return $this->whereIn('status', $validStatuses);
         }
 
-        if (Category::hasValidStatus($statuses)) {
+        if (Product::hasValidStatus($statuses)) {
             return $this->where('status', '=', $statuses);
         }
 
         return $this;
+    }
+
+    /**
+     * @param ProductModel $product
+     * @param array $params
+     */
+    public function syncCategories(ProductModel $product, array $params)
+    {
+        $product->categories()->sync($params);
+    }
+
+    /**
+     * @param ProductModel $product
+     */
+    public function detachCategories(ProductModel $product)
+    {
+        $product->categories()->detach();
     }
 }

@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Products;
 
 use App\Repositories\Products\ProductRepository;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class ProductService
+ * @package App\Services\Products
+ */
 class ProductService
 {
     /**
@@ -18,35 +22,44 @@ class ProductService
      *
      * @param ProductRepository $productRepository
      */
-    final function __construct(ProductRepository $productRepository)
+    public function __construct(ProductRepository $productRepository)
     {
         $this->productRepository = $productRepository;
     }
 
     /**
-     * @return Collection|Model[]
+     * @param array $request
+     * @return LengthAwarePaginator
      */
-    public function list()
+    public function list(array $request = [])
     {
-        return $this->productRepository->all();
+        return $this->productRepository->list($request);
     }
 
     /**
-     * @param int|string $id
-     * @return mixed
+     * @param $id
+     * @return Model
      */
-    public function find($id)
+    public function find($id): Model
     {
         return $this->productRepository->find($id);
     }
 
     /**
      * @param array $request
-     * @return bool
+     * @return Model
      */
-    public function create(array $request): bool
+    public function create(array $request): Model
     {
-        return $this->productRepository->create($request);
+        $product = $this->productRepository->create($request);
+
+        if (isset($request['categories'])) {
+            $this->productRepository->syncCategories($product, $request['categories']);
+        } else {
+            $this->productRepository->detachCategories($product);
+        }
+
+        return $product;
     }
 
     /**
@@ -66,5 +79,21 @@ class ProductService
     public function destroy($id): bool
     {
         return $this->productRepository->delete($id);
+    }
+
+    /**
+     * @param array $params
+     */
+    public function syncCategories(array $params)
+    {
+        $this->productRepository->syncCategories($params);
+    }
+
+    /**
+     * @return void
+     */
+    public function detachCategories()
+    {
+        $this->productRepository->detachCategories();
     }
 }

@@ -3,9 +3,13 @@
 namespace App\Services\Categories;
 
 use App\Repositories\Categories\CategoryRepository;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class CategoryService
+ * @package App\Services\Categories
+ */
 class CategoryService
 {
     /**
@@ -18,17 +22,18 @@ class CategoryService
      *
      * @param CategoryRepository $categoryRepository
      */
-    final function __construct(CategoryRepository $categoryRepository)
+    public function __construct(CategoryRepository $categoryRepository)
     {
         $this->categoryRepository = $categoryRepository;
     }
 
     /**
-     * @return Collection|Model[]
+     * @param array $request
+     * @return LengthAwarePaginator
      */
-    public function list()
+    public function list(array $request = [])
     {
-        return $this->categoryRepository->all();
+        return $this->categoryRepository->list($request);
     }
 
     /**
@@ -44,7 +49,7 @@ class CategoryService
      * @param array $request
      * @return bool
      */
-    public function create(array $request): bool
+    public function create(array $request): Model
     {
         return $this->categoryRepository->create($request);
     }
@@ -66,5 +71,22 @@ class CategoryService
     public function destroy($id): bool
     {
         return $this->categoryRepository->delete($id);
+    }
+
+    /**
+     * @param array $params
+     * @return void
+     */
+    public function syncProducts(array $params)
+    {
+        $this->categoryRepository->syncProducts($params);
+    }
+
+    /**
+     * @return void
+     */
+    public function detachProducts()
+    {
+        $this->categoryRepository->detachProducts();
     }
 }

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\API\Categories;
 
 use App\Http\Controllers\API\APIController;
-use App\Services\CategoryService;
+use App\Services\Categories\CategoryService;
+use App\Transformers\Categories\CategoryTransformer;
+use Illuminate\Http\Request;
+use League\Fractal\Manager;
 
 /**
  * Class CategoryController
@@ -22,15 +25,19 @@ class CategoryController extends APIController
      */
     public function __construct(CategoryService $categoryService)
     {
+        $this->fractalManager = new Manager;
         $this->categoryService = $categoryService;
     }
 
     /**
      * @return mixed
      */
-    public function index()
+    public function index(Request $request)
     {
-        return $this->responseWithCollection($this->categoryService->list());
+        return $this->responseWithCollection(
+            $this->categoryService->list($request->all()),
+            new CategoryTransformer()
+        );
     }
 
     /**
@@ -39,7 +46,10 @@ class CategoryController extends APIController
      */
     public function store(Request $request)
     {
-        return $this->responseWithItem($this->categoryService->create($request->all()));
+        return $this->responseWithItem(
+            $this->categoryService->create($request->all()),
+            new CategoryTransformer()
+        );
     }
 
     /**
@@ -48,6 +58,9 @@ class CategoryController extends APIController
      */
     public function show($id)
     {
-        return $this->responseWithItem($this->categoryService->find($id));
+        return $this->responseWithItem(
+            $this->categoryService->find($id),
+            new CategoryTransformer()
+        );
     }
 }

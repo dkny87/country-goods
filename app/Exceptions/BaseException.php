@@ -4,22 +4,13 @@ namespace App\Exceptions;
 
 use App\Domain\ErrorMessage;
 use Exception;
+use Illuminate\Http\JsonResponse;
 
 abstract class BaseException extends Exception
 {
     /**
-     * @return string
-     */
-    abstract public function errorCode();
-
-    /**
-     * @return int
-     */
-    abstract public function statusCode();
-
-    /**
      * @param $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function render($request)
     {
@@ -30,4 +21,14 @@ abstract class BaseException extends Exception
             'message' => ErrorMessage::forCode($errorCode),
         ], $this->statusCode());
     }
+
+    /**
+     * @return string
+     */
+    abstract public function errorCode();
+
+    /**
+     * @return int
+     */
+    abstract public function statusCode();
 }

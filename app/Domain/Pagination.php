@@ -8,5 +8,5 @@ namespace App\Domain;
  */
 class Pagination
 {
-    const DEFAULT_LIMIT = 20;
+    const DEFAULT_LIMIT = 25;
 }

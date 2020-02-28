@@ -43,7 +43,7 @@ class CustomerRepository extends BaseRepository
      */
     private function whereCustomerName($filter)
     {
-        if (!$this->hasValue($filter['name'])) {
+        if (!isset($filter['name'])) {
             return $this;
         }
 
@@ -55,12 +55,21 @@ class CustomerRepository extends BaseRepository
     }
 
     /**
+     * @param $field
+     * @return bool
+     */
+    private function hasValue($field)
+    {
+        return isset($value);
+    }
+
+    /**
      * @param $filter
      * @return $this|CustomerRepository
      */
     private function whereStatus($filter)
     {
-        if (!$this->hasValue($filter['status'])) {
+        if (!isset($filter['status'])) {
             return $this;
         }
 
@@ -79,14 +88,5 @@ class CustomerRepository extends BaseRepository
         }
 
         return $this;
-    }
-
-    /**
-     * @param $field
-     * @return bool
-     */
-    private function hasValue($field)
-    {
-        return isset($value);
     }
 }

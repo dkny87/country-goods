@@ -32,6 +32,21 @@ abstract class BaseRepository
     }
 
     /**
+     * @return mixed
+     * @throws Exception
+     */
+    private function makeModel()
+    {
+        $model = $this->app->make($this->model());
+
+        if (!$model instanceof Model) {
+            throw new Exception("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
+        }
+
+        return $model;
+    }
+
+    /**
      * @return string
      */
     abstract public function model();
@@ -43,15 +58,6 @@ abstract class BaseRepository
     public function create(array $attributes = [])
     {
         return $this->model->create($attributes);
-    }
-
-    /**
-     * @param int|string $id
-     * @return mixed
-     */
-    public function find($id)
-    {
-        return $this->model->findOrFail($id);
     }
 
     /**
@@ -107,6 +113,15 @@ abstract class BaseRepository
     public function update(array $data, $id): bool
     {
         return $this->find($id)->update($data);
+    }
+
+    /**
+     * @param int|string $id
+     * @return mixed
+     */
+    public function find($id)
+    {
+        return $this->model->findOrFail($id);
     }
 
     /**
@@ -185,20 +200,5 @@ abstract class BaseRepository
         }
 
         return $this;
-    }
-
-    /**
-     * @return mixed
-     * @throws Exception
-     */
-    private function makeModel()
-    {
-        $model = $this->app->make($this->model());
-
-        if (!$model instanceof Model) {
-            throw new Exception("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
-        }
-
-        return $model;
     }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Utilities;
 
-use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Facades\Hash;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class FCTokenGenerator

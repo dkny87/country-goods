@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Utilities\FCTokenGenerator;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * Class Category
@@ -10,7 +11,17 @@ use App\Utilities\FCTokenGenerator;
  */
 class Product extends BaseModel
 {
-    protected $guard = [];
+    /**
+     * @var array
+     */
+    protected $fillable = [
+        'product_uuid',
+        'name',
+        'description',
+        'sku',
+        'quantity',
+        'price'
+    ];
 
     /**
      * Set Product UUID
@@ -20,7 +31,15 @@ class Product extends BaseModel
         parent::boot();
 
         static::creating(function ($model) {
-            $model->category_uuid = FCTokenGenerator::uuid();
+            $model->product_uuid = FCTokenGenerator::uuid();
         });
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 }

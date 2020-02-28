@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Employee;
+namespace App\Repositories\Employees;
 
 use App\Domain\Employee;
 use App\Domain\Pagination;

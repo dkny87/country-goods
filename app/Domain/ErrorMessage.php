@@ -4,6 +4,10 @@ namespace App\Domain;
 
 use InvalidArgumentException;
 
+/**
+ * Class ErrorMessage
+ * @package App\Domain
+ */
 class ErrorMessage
 {
     /**

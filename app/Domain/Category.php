@@ -10,10 +10,17 @@ class Category
 {
     const STATUS_ACTIVE = 'active';
     const STATUS_INACTIVE = 'inactive';
+    const STATUS_DELETED = 'deleted';
+    const STATUS_PENDING = 'pending';
 
+    /**
+     * @var array
+     */
     private static $statuses = [
         self::STATUS_ACTIVE,
-        self::STATUS_INACTIVE
+        self::STATUS_INACTIVE,
+        self::STATUS_DELETED,
+        self::STATUS_PENDING
     ];
 
     /**

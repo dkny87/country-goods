@@ -3,9 +3,9 @@
 namespace Tests\Feature;
 
 use App\Models\Category;
-use Illuminate\Container\Container;
 use App\Repositories\Categories\CategoryRepository;
 use App\Services\Categories\CategoryService;
+use Illuminate\Container\Container;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\DKBaseTestCase;
 

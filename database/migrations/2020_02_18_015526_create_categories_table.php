@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateCategoriesTable extends Migration
 {
@@ -37,8 +37,7 @@ class CreateCategoriesTable extends Migration
 
             $doctrineTable = $sm->listTableDetails('categories');
 
-            if ($doctrineTable->hasIndex('categories__lft__rgt_parent_id_index'))
-            {
+            if ($doctrineTable->hasIndex('categories__lft__rgt_parent_id_index')) {
                 $table->dropIndex('categories__lft__rgt_parent_id_index');
             }
 

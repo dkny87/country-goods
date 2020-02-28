@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\API\Customers;
 
 use App\Http\Controllers\API\APIController;
-use App\Models\Customer;
-use App\Models\Employee;
 use App\Services\Customers\CustomerService;
 use App\Transformers\Customers\CustomerTransformer;
 use Illuminate\Http\Request;

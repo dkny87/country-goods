@@ -4,7 +4,6 @@ namespace App\Services\Customers;
 
 use App\Repositories\Customers\CustomerRepository;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class CustomerService

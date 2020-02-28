@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\API\Employees;
 
 use App\Http\Controllers\API\APIController;
-use App\Models\Employee;
 use App\Services\Employees\EmployeeService;
 use App\Transformers\Employees\EmployeeTransformer;
 use Illuminate\Http\Request;

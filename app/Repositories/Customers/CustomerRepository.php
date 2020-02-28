@@ -55,15 +55,6 @@ class CustomerRepository extends BaseRepository
     }
 
     /**
-     * @param $field
-     * @return bool
-     */
-    private function hasValue($field)
-    {
-        return isset($value);
-    }
-
-    /**
      * @param $filter
      * @return $this|CustomerRepository
      */
@@ -88,5 +79,14 @@ class CustomerRepository extends BaseRepository
         }
 
         return $this;
+    }
+
+    /**
+     * @param $field
+     * @return bool
+     */
+    private function hasValue($field)
+    {
+        return isset($value);
     }
 }

@@ -2,9 +2,20 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class Session extends Model
+/**
+ * Class Session
+ * @package App
+ */
+class Session extends BaseModel
 {
-    //
+    /**
+     * @var array
+     */
+    protected $fillable = [
+        'session_id',
+        'session_info',
+        'expired_at'
+    ];
 }

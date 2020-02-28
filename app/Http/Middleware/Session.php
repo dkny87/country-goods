@@ -41,7 +41,7 @@ class Session
 
         $session = $this->session->get($sessionId);
 
-        if (empty($session['Item'])) {
+        if (!$session) {
             throw new InvalidSessionTokenException();
         }
 

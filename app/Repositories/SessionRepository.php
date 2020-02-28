@@ -19,12 +19,12 @@ class SessionRepository extends BaseRepository
     }
 
     /**
-     * @param $id
+     * @param $sessionId
      * @return mixed
      */
-    public function get($id)
+    public function get($sessionId)
     {
-        return $this->model->find($id);
+        return $this->findWhere('session_id', '=', $sessionId);
     }
 
     /**

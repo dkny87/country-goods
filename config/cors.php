@@ -1,5 +1,13 @@
 <?php
 
+$origins = [
+    'local' => ['*'],
+    'staging' => ['*'],
+    'production' => ['https://*.faicheph.com'],
+];
+
+$allowedOrigins = $origins[env('APP_ENV')] ?? $origins['production'];
+
 return [
 
     /*
@@ -31,7 +39,7 @@ return [
     /*
      * Matches the request origin. `[*]` allows all origins.
      */
-    'allowed_origins' => ['*'],
+    'allowed_origins' => $allowedOrigins,
 
     /*
      * Matches the request origin with, similar to `Request::is()`

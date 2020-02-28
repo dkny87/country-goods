@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="00abef6b-5851-4d80-8996-d6013477c3b3" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="00abef6b-5851-4d80-8996-d6013477c3b3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/SessionRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_02_18_225235_create_sessions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cors.php" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+>>>>>>> feature/session-based-login
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +26,10 @@
     </execution>
   </component>
   <component name="Git.Settings">
+<<<<<<< HEAD
     <option name="PATH_TO_GIT" value="D:\laragon\bin\git\bin\git.exe" />
+=======
+>>>>>>> feature/session-based-login
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -120,17 +135,26 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1Xxa7srIsCWjJ5Ux54amC5vHM9c" />
+<<<<<<< HEAD
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="compactDirectories" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+=======
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+>>>>>>> feature/session-based-login
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/database/factories" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories" />
+>>>>>>> feature/session-based-login
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -142,6 +166,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+<<<<<<< HEAD
       <recent name="D:\laragon\www\country-goods\database\factories" />
       <recent name="D:\laragon\www\country-goods\app\Models" />
       <recent name="D:\laragon\www\country-goods\app\Transformers" />
@@ -150,6 +175,13 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\laragon\www\country-goods\tests" />
+=======
+      <recent name="$PROJECT_DIR$/app/Repositories" />
+      <recent name="$PROJECT_DIR$/database/migrations" />
+      <recent name="$PROJECT_DIR$/app/Http/Middleware" />
+      <recent name="$PROJECT_DIR$/tests/Feature" />
+      <recent name="$PROJECT_DIR$/app/Http" />
+>>>>>>> feature/session-based-login
     </key>
   </component>
   <component name="RunManager">
@@ -186,17 +218,22 @@
       <workItem from="1582158015553" duration="1847000" />
       <workItem from="1582238847512" duration="1496000" />
       <workItem from="1582254688578" duration="1636000" />
+<<<<<<< HEAD
       <workItem from="1582555575159" duration="62000" />
       <workItem from="1582555651227" duration="5435000" />
       <workItem from="1582593935447" duration="2349000" />
       <workItem from="1582613373770" duration="6078000" />
       <workItem from="1582717645585" duration="5944000" />
+=======
+      <workItem from="1582775817596" duration="767000" />
+>>>>>>> feature/session-based-login
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< HEAD
   <component name="WindowStateProjectService">
     <state x="414" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582719418038">
       <screen x="0" y="0" width="1366" height="728" />
@@ -226,5 +263,17 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1582614628843" />
+=======
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+>>>>>>> feature/session-based-login
   </component>
 </project>
